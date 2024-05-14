@@ -1,0 +1,12 @@
+C:\Users\uPss\Source\Repos\Eduard0corona\medicalsystem\MS.Application.Patients\bin\Debug\net8.0\MS.Application.Patients.deps.json
+C:\Users\uPss\Source\Repos\Eduard0corona\medicalsystem\MS.Application.Patients\bin\Debug\net8.0\MS.Application.Patients.dll
+C:\Users\uPss\Source\Repos\Eduard0corona\medicalsystem\MS.Application.Patients\bin\Debug\net8.0\MS.Application.Patients.pdb
+C:\Users\uPss\Source\Repos\Eduard0corona\medicalsystem\MS.Application.Patients\obj\Debug\net8.0\MS.Application.Patients.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\uPss\Source\Repos\Eduard0corona\medicalsystem\MS.Application.Patients\obj\Debug\net8.0\MS.Application.Patients.AssemblyInfoInputs.cache
+C:\Users\uPss\Source\Repos\Eduard0corona\medicalsystem\MS.Application.Patients\obj\Debug\net8.0\MS.Application.Patients.AssemblyInfo.cs
+C:\Users\uPss\Source\Repos\Eduard0corona\medicalsystem\MS.Application.Patients\obj\Debug\net8.0\MS.Application.Patients.csproj.CoreCompileInputs.cache
+C:\Users\uPss\Source\Repos\Eduard0corona\medicalsystem\MS.Application.Patients\obj\Debug\net8.0\MS.Application.Patients.sourcelink.json
+C:\Users\uPss\Source\Repos\Eduard0corona\medicalsystem\MS.Application.Patients\obj\Debug\net8.0\MS.Application.Patients.dll
+C:\Users\uPss\Source\Repos\Eduard0corona\medicalsystem\MS.Application.Patients\obj\Debug\net8.0\refint\MS.Application.Patients.dll
+C:\Users\uPss\Source\Repos\Eduard0corona\medicalsystem\MS.Application.Patients\obj\Debug\net8.0\MS.Application.Patients.pdb
+C:\Users\uPss\Source\Repos\Eduard0corona\medicalsystem\MS.Application.Patients\obj\Debug\net8.0\ref\MS.Application.Patients.dll

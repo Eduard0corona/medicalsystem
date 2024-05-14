@@ -15,7 +15,7 @@ namespace MS.Domain.Authorization.Entities
         public string Email { get; set; } = string.Empty;
         public string PasswordHash { get; set; } = string.Empty;
         public DateTime? ModifiedDate { get; set; }
-        public IReadOnlyList<Role>? Roles { get; set; }
+        public IReadOnlyList<UserRole>? UserRoles { get; set; }
         public IReadOnlyList<Token>? Tokens { get; set; }
     }
 }

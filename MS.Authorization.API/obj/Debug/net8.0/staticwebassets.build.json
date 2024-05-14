@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "C/lrlFVnCcx0KBVw3BVQ/zKweGDwkSGvrLzIQeN0GZs=",
+  "Source": "MS.Authorization.API",
+  "BasePath": "_content/MS.Authorization.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

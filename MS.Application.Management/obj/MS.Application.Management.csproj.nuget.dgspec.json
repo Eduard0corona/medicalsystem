@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\uPss\\Source\\Repos\\Eduard0corona\\medicalsystem\\MS.Application.Management\\MS.Application.Management.csproj": {}
+    "C:\\Users\\uPss\\source\\repos\\Eduard0corona\\medicalsystem\\MS.Application.Management\\MS.Application.Management.csproj": {}
   },
   "projects": {
-    "C:\\Users\\uPss\\Source\\Repos\\Eduard0corona\\medicalsystem\\MS.Application.Management\\MS.Application.Management.csproj": {
+    "C:\\Users\\uPss\\source\\repos\\Eduard0corona\\medicalsystem\\MS.Application.Management\\MS.Application.Management.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\uPss\\Source\\Repos\\Eduard0corona\\medicalsystem\\MS.Application.Management\\MS.Application.Management.csproj",
+        "projectUniqueName": "C:\\Users\\uPss\\source\\repos\\Eduard0corona\\medicalsystem\\MS.Application.Management\\MS.Application.Management.csproj",
         "projectName": "MS.Application.Management",
-        "projectPath": "C:\\Users\\uPss\\Source\\Repos\\Eduard0corona\\medicalsystem\\MS.Application.Management\\MS.Application.Management.csproj",
+        "projectPath": "C:\\Users\\uPss\\source\\repos\\Eduard0corona\\medicalsystem\\MS.Application.Management\\MS.Application.Management.csproj",
         "packagesPath": "C:\\Users\\uPss\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\uPss\\Source\\Repos\\Eduard0corona\\medicalsystem\\MS.Application.Management\\obj\\",
+        "outputPath": "C:\\Users\\uPss\\source\\repos\\Eduard0corona\\medicalsystem\\MS.Application.Management\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

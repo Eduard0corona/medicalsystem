@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\uPss\\Source\\Repos\\Eduard0corona\\medicalsystem\\MS.Patients.API\\MS.Patients.API.csproj": {}
+    "C:\\Users\\uPss\\source\\repos\\Eduard0corona\\medicalsystem\\MS.Patients.API\\MS.Patients.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\uPss\\Source\\Repos\\Eduard0corona\\medicalsystem\\MS.Patients.API\\MS.Patients.API.csproj": {
+    "C:\\Users\\uPss\\source\\repos\\Eduard0corona\\medicalsystem\\MS.Patients.API\\MS.Patients.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\uPss\\Source\\Repos\\Eduard0corona\\medicalsystem\\MS.Patients.API\\MS.Patients.API.csproj",
+        "projectUniqueName": "C:\\Users\\uPss\\source\\repos\\Eduard0corona\\medicalsystem\\MS.Patients.API\\MS.Patients.API.csproj",
         "projectName": "MS.Patients.API",
-        "projectPath": "C:\\Users\\uPss\\Source\\Repos\\Eduard0corona\\medicalsystem\\MS.Patients.API\\MS.Patients.API.csproj",
+        "projectPath": "C:\\Users\\uPss\\source\\repos\\Eduard0corona\\medicalsystem\\MS.Patients.API\\MS.Patients.API.csproj",
         "packagesPath": "C:\\Users\\uPss\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\uPss\\Source\\Repos\\Eduard0corona\\medicalsystem\\MS.Patients.API\\obj\\",
+        "outputPath": "C:\\Users\\uPss\\source\\repos\\Eduard0corona\\medicalsystem\\MS.Patients.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
