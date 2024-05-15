@@ -2,6 +2,8 @@
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using MS.Application.Authorization.Common.Behaviours;
+using MS.Application.Authorization.Common.Interfaces;
+using MS.Application.Authorization.Services;
 using System.Reflection;
 
 namespace MS.Application.Authorization
@@ -13,6 +15,7 @@ namespace MS.Application.Authorization
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
+            services.AddScoped<IJwtService, JwtService>();
 
             services.AddMediatR(cfg =>
             {
