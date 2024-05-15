@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using Microsoft.Extensions.Configuration;
 using MS.Application.Authorization.Common.Interfaces;
 using MS.Application.Authorization.Repositories;
 
@@ -18,7 +17,7 @@ namespace MS.Application.Authorization.Features.UserFeatures.Queries.LoginUser
 
             if (userInfo != null)
             {
-                var isValidPassword = BCrypt.Net.BCrypt.Verify(request.Password, userInfo.PasswordHash);
+                var isValidPassword = _securityService.VerifyPassword(request.Password, userInfo.PasswordHash);
 
                 if (isValidPassword)
                 {

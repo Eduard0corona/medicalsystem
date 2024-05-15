@@ -31,8 +31,11 @@ namespace MS.Persistence.Authorization.Data.Configurations
                 .IsRequired()
                 .HasMaxLength(255);
 
-            builder.Property(u => u.ModifiedDate)
+            builder.Property(u => u.DateModified)
                 .HasColumnName("ModifiedDate");
+
+            builder.Property(u => u.DateCreated)
+               .HasColumnName("DateCreated");
 
             builder.HasMany(u => u.UserRoles)
                 .WithOne()

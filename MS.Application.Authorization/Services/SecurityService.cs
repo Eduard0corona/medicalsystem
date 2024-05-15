@@ -45,6 +45,10 @@ namespace MS.Application.Authorization.Services
 
         public bool VerifyPassword(string password, string hashedPassword)
         {
+            //Validar si no se necesita mandar de esta forma en los unit test
+            //string salt = _configuration.GetSection("Security:Salt").Value!;
+            //string passwordSalted = string.Concat(password,salt);
+
             return BCrypt.Net.BCrypt.Verify(password, hashedPassword);
         }
     }

@@ -7,10 +7,9 @@ using MS.Domain.Authorization.Entities;
 
 namespace MS.Application.Authorization.Features.UserFeatures.Commands.CreateUser
 {
-    public class CreateUserHandler(IUserRepository userRepository, IConfiguration configuration, ISecurityService securityService) : IRequestHandler<CreateUserRequest, CreateUserResponse>
+    public class CreateUserHandler(IUserRepository userRepository, ISecurityService securityService) : IRequestHandler<CreateUserRequest, CreateUserResponse>
     {
         readonly IUserRepository _userRepository = userRepository;
-        readonly IConfiguration _configuration = configuration;
         readonly ISecurityService _securityService = securityService;
 
         public async Task<CreateUserResponse> Handle(CreateUserRequest request, CancellationToken cancellationToken)
