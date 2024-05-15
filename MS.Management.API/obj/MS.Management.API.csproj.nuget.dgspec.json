@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\uPss\\Source\\Repos\\Eduard0corona\\medicalsystem\\MS.Management.API\\MS.Management.API.csproj": {}
+    "C:\\Users\\uPss\\source\\repos\\Eduard0corona\\medicalsystem\\MS.Management.API\\MS.Management.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\uPss\\Source\\Repos\\Eduard0corona\\medicalsystem\\MS.Management.API\\MS.Management.API.csproj": {
+    "C:\\Users\\uPss\\source\\repos\\Eduard0corona\\medicalsystem\\MS.Management.API\\MS.Management.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\uPss\\Source\\Repos\\Eduard0corona\\medicalsystem\\MS.Management.API\\MS.Management.API.csproj",
+        "projectUniqueName": "C:\\Users\\uPss\\source\\repos\\Eduard0corona\\medicalsystem\\MS.Management.API\\MS.Management.API.csproj",
         "projectName": "MS.Management.API",
-        "projectPath": "C:\\Users\\uPss\\Source\\Repos\\Eduard0corona\\medicalsystem\\MS.Management.API\\MS.Management.API.csproj",
+        "projectPath": "C:\\Users\\uPss\\source\\repos\\Eduard0corona\\medicalsystem\\MS.Management.API\\MS.Management.API.csproj",
         "packagesPath": "C:\\Users\\uPss\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\uPss\\Source\\Repos\\Eduard0corona\\medicalsystem\\MS.Management.API\\obj\\",
+        "outputPath": "C:\\Users\\uPss\\source\\repos\\Eduard0corona\\medicalsystem\\MS.Management.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

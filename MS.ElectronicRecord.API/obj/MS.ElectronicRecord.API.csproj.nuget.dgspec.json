@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\uPss\\Source\\Repos\\Eduard0corona\\medicalsystem\\MS.ElectronicRecord.API\\MS.ElectronicRecord.API.csproj": {}
+    "C:\\Users\\uPss\\source\\repos\\Eduard0corona\\medicalsystem\\MS.ElectronicRecord.API\\MS.ElectronicRecord.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\uPss\\Source\\Repos\\Eduard0corona\\medicalsystem\\MS.ElectronicRecord.API\\MS.ElectronicRecord.API.csproj": {
+    "C:\\Users\\uPss\\source\\repos\\Eduard0corona\\medicalsystem\\MS.ElectronicRecord.API\\MS.ElectronicRecord.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\uPss\\Source\\Repos\\Eduard0corona\\medicalsystem\\MS.ElectronicRecord.API\\MS.ElectronicRecord.API.csproj",
+        "projectUniqueName": "C:\\Users\\uPss\\source\\repos\\Eduard0corona\\medicalsystem\\MS.ElectronicRecord.API\\MS.ElectronicRecord.API.csproj",
         "projectName": "MS.ElectronicRecord.API",
-        "projectPath": "C:\\Users\\uPss\\Source\\Repos\\Eduard0corona\\medicalsystem\\MS.ElectronicRecord.API\\MS.ElectronicRecord.API.csproj",
+        "projectPath": "C:\\Users\\uPss\\source\\repos\\Eduard0corona\\medicalsystem\\MS.ElectronicRecord.API\\MS.ElectronicRecord.API.csproj",
         "packagesPath": "C:\\Users\\uPss\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\uPss\\Source\\Repos\\Eduard0corona\\medicalsystem\\MS.ElectronicRecord.API\\obj\\",
+        "outputPath": "C:\\Users\\uPss\\source\\repos\\Eduard0corona\\medicalsystem\\MS.ElectronicRecord.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

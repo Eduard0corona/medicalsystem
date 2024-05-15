@@ -724,11 +724,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\uPss\\Source\\Repos\\Eduard0corona\\medicalsystem\\MS.Authorization.API\\MS.Authorization.API.csproj",
+      "projectUniqueName": "C:\\Users\\uPss\\source\\repos\\Eduard0corona\\medicalsystem\\MS.Authorization.API\\MS.Authorization.API.csproj",
       "projectName": "MS.Authorization.API",
-      "projectPath": "C:\\Users\\uPss\\Source\\Repos\\Eduard0corona\\medicalsystem\\MS.Authorization.API\\MS.Authorization.API.csproj",
+      "projectPath": "C:\\Users\\uPss\\source\\repos\\Eduard0corona\\medicalsystem\\MS.Authorization.API\\MS.Authorization.API.csproj",
       "packagesPath": "C:\\Users\\uPss\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\uPss\\Source\\Repos\\Eduard0corona\\medicalsystem\\MS.Authorization.API\\obj\\",
+      "outputPath": "C:\\Users\\uPss\\source\\repos\\Eduard0corona\\medicalsystem\\MS.Authorization.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
