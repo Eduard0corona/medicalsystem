@@ -5,11 +5,10 @@ using MS.Application.Authorization.Repositories;
 
 namespace MS.Application.Authorization.Features.UserFeatures.Queries.LoginUser
 {
-    public class LoginUserHandler(IUserRepository userRepository, IConfiguration configuration, IJwtService jwtService) : IRequestHandler<LoginUserRequest, LoginUserResponse>
+    public class LoginUserHandler(IUserRepository userRepository, ISecurityService securityService) : IRequestHandler<LoginUserRequest, LoginUserResponse>
     {
         readonly IUserRepository _userRepository = userRepository;
-        readonly IConfiguration _configuration = configuration;
-        readonly IJwtService _jwtService = jwtService;
+        readonly ISecurityService _securityService = securityService;
 
         public async Task<LoginUserResponse> Handle(LoginUserRequest request, CancellationToken cancellationToken)
         {
@@ -23,7 +22,7 @@ namespace MS.Application.Authorization.Features.UserFeatures.Queries.LoginUser
 
                 if (isValidPassword)
                 {
-                    userToken.Token = _jwtService.GenerateToken(userInfo);
+                    userToken.Token = _securityService.GenerateToken(userInfo);
                 }
             }
 
