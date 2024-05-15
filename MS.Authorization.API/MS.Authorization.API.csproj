@@ -16,4 +16,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MS.Application.Authorization\MS.Application.Authorization.csproj" />
+    <ProjectReference Include="..\MS.Domain.Authorization\MS.Domain.Authorization.csproj" />
+    <ProjectReference Include="..\MS.Persistence.Authorization\MS.Persistence.Authorization.csproj" />
+  </ItemGroup>
+
 </Project>

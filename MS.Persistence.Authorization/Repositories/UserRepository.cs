@@ -6,7 +6,7 @@ using MS.Persistence.Authorization.Data;
 
 namespace MS.Persistence.Authorization.Repositories
 {
-    public class UserRepository : BaseRepository<User>
+    public class UserRepository : BaseRepository<User>, IUserRepository
     {
         public UserRepository(AuthorizationDbContext context) : base(context) { }
 
