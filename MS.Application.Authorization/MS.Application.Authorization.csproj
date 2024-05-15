@@ -7,15 +7,22 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.4" />
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="FluentValidation" Version="11.9.1" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.9.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.5" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="8.0.0" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="7.5.2" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.5.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\MS.Domain.Authorization\MS.Domain.Authorization.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\UserFeatures\Commands\" />
   </ItemGroup>
 
 </Project>

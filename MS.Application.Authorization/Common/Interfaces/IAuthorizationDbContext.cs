@@ -1,10 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MS.Domain.Authorization.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MS.Application.Authorization.Common.Interfaces
 {
@@ -13,6 +8,7 @@ namespace MS.Application.Authorization.Common.Interfaces
         DbSet<User> Users { get; }
         DbSet<Role> Roles { get; }
         DbSet<Token> Tokens { get; }
+        DbSet<UserRole> UserRoles { get; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
