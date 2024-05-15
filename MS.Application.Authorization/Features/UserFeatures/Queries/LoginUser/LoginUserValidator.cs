@@ -6,7 +6,7 @@ namespace MS.Application.Authorization.Features.UserFeatures.Queries.LoginUser
     {
         public LoginUserValidator()
         {
-            RuleFor(x => x.Username).NotEmpty().MaximumLength(50).EmailAddress();
+            RuleFor(x => x.Username).NotEmpty().MaximumLength(50);
             RuleFor(p => p.Password)
                 .NotEmpty().WithMessage("Your password cannot be empty");
         }

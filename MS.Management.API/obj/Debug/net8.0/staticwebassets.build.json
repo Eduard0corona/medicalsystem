@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "7zsn2dIgYZYEKOhVzfScsg+b77WeT5qYYLm/A+HIiYs=",
+  "Source": "MS.Management.API",
+  "BasePath": "_content/MS.Management.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

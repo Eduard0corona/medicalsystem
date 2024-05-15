@@ -1,0 +1,12 @@
+C:\Users\uPss\source\repos\Eduard0corona\medicalsystem\MS.Persistence.Patients\bin\Debug\net8.0\MS.Persistence.Patients.deps.json
+C:\Users\uPss\source\repos\Eduard0corona\medicalsystem\MS.Persistence.Patients\bin\Debug\net8.0\MS.Persistence.Patients.dll
+C:\Users\uPss\source\repos\Eduard0corona\medicalsystem\MS.Persistence.Patients\bin\Debug\net8.0\MS.Persistence.Patients.pdb
+C:\Users\uPss\source\repos\Eduard0corona\medicalsystem\MS.Persistence.Patients\obj\Debug\net8.0\MS.Persistence.Patients.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\uPss\source\repos\Eduard0corona\medicalsystem\MS.Persistence.Patients\obj\Debug\net8.0\MS.Persistence.Patients.AssemblyInfoInputs.cache
+C:\Users\uPss\source\repos\Eduard0corona\medicalsystem\MS.Persistence.Patients\obj\Debug\net8.0\MS.Persistence.Patients.AssemblyInfo.cs
+C:\Users\uPss\source\repos\Eduard0corona\medicalsystem\MS.Persistence.Patients\obj\Debug\net8.0\MS.Persistence.Patients.csproj.CoreCompileInputs.cache
+C:\Users\uPss\source\repos\Eduard0corona\medicalsystem\MS.Persistence.Patients\obj\Debug\net8.0\MS.Persistence.Patients.sourcelink.json
+C:\Users\uPss\source\repos\Eduard0corona\medicalsystem\MS.Persistence.Patients\obj\Debug\net8.0\MS.Persistence.Patients.dll
+C:\Users\uPss\source\repos\Eduard0corona\medicalsystem\MS.Persistence.Patients\obj\Debug\net8.0\refint\MS.Persistence.Patients.dll
+C:\Users\uPss\source\repos\Eduard0corona\medicalsystem\MS.Persistence.Patients\obj\Debug\net8.0\MS.Persistence.Patients.pdb
+C:\Users\uPss\source\repos\Eduard0corona\medicalsystem\MS.Persistence.Patients\obj\Debug\net8.0\ref\MS.Persistence.Patients.dll

@@ -1,0 +1,12 @@
+C:\Users\uPss\source\repos\Eduard0corona\medicalsystem\MS.Application.ElectronicRecord\bin\Debug\net8.0\MS.Application.ElectronicRecord.deps.json
+C:\Users\uPss\source\repos\Eduard0corona\medicalsystem\MS.Application.ElectronicRecord\bin\Debug\net8.0\MS.Application.ElectronicRecord.dll
+C:\Users\uPss\source\repos\Eduard0corona\medicalsystem\MS.Application.ElectronicRecord\bin\Debug\net8.0\MS.Application.ElectronicRecord.pdb
+C:\Users\uPss\source\repos\Eduard0corona\medicalsystem\MS.Application.ElectronicRecord\obj\Debug\net8.0\MS.Application.ElectronicRecord.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\uPss\source\repos\Eduard0corona\medicalsystem\MS.Application.ElectronicRecord\obj\Debug\net8.0\MS.Application.ElectronicRecord.AssemblyInfoInputs.cache
+C:\Users\uPss\source\repos\Eduard0corona\medicalsystem\MS.Application.ElectronicRecord\obj\Debug\net8.0\MS.Application.ElectronicRecord.AssemblyInfo.cs
+C:\Users\uPss\source\repos\Eduard0corona\medicalsystem\MS.Application.ElectronicRecord\obj\Debug\net8.0\MS.Application.ElectronicRecord.csproj.CoreCompileInputs.cache
+C:\Users\uPss\source\repos\Eduard0corona\medicalsystem\MS.Application.ElectronicRecord\obj\Debug\net8.0\MS.Application.ElectronicRecord.sourcelink.json
+C:\Users\uPss\source\repos\Eduard0corona\medicalsystem\MS.Application.ElectronicRecord\obj\Debug\net8.0\MS.Application.ElectronicRecord.dll
+C:\Users\uPss\source\repos\Eduard0corona\medicalsystem\MS.Application.ElectronicRecord\obj\Debug\net8.0\refint\MS.Application.ElectronicRecord.dll
+C:\Users\uPss\source\repos\Eduard0corona\medicalsystem\MS.Application.ElectronicRecord\obj\Debug\net8.0\MS.Application.ElectronicRecord.pdb
+C:\Users\uPss\source\repos\Eduard0corona\medicalsystem\MS.Application.ElectronicRecord\obj\Debug\net8.0\ref\MS.Application.ElectronicRecord.dll

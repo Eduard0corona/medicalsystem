@@ -27,7 +27,7 @@ namespace MS.Application.Authorization.Services
                 {
                 new Claim(ClaimTypes.NameIdentifier, userInfo.Id.ToString()),
                 new Claim(ClaimTypes.Name, userInfo.Username)
-            }),
+                }),
                 Expires = DateTime.UtcNow.AddHours(Convert.ToDouble(_configuration.GetSection("Jwt:ExpireHours").Value!)),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };

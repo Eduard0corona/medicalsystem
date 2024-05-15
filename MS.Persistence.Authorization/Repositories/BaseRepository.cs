@@ -5,6 +5,7 @@ using MS.Persistence.Authorization.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -40,9 +41,14 @@ namespace MS.Persistence.Authorization.Repositories
             return result!;
         }
 
-        public Task<List<T>> GetAll(CancellationToken cancellationToken)
+        public async Task<List<T>> GetAll(CancellationToken cancellationToken)
         {
-            return Context.Set<T>().ToListAsync(cancellationToken);
+            return await Context.Set<T>().ToListAsync(cancellationToken);
+        }
+
+        public async Task<IReadOnlyList<T>> GetBy(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken)
+        {
+            return await Context.Set<T>().AsNoTracking().Where(predicate).ToListAsync(cancellationToken);
         }
 
         public void Update(T entity)

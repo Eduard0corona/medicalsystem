@@ -1,13 +1,7 @@
-﻿using AutoMapper;
-using MediatR;
+﻿using MediatR;
 using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
 using MS.Application.Authorization.Common.Interfaces;
 using MS.Application.Authorization.Repositories;
-using MS.Domain.Authorization.Entities;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 
 namespace MS.Application.Authorization.Features.UserFeatures.Queries.LoginUser
 {

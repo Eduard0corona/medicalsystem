@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "MS.Application.ElectronicRecord/1.0.0": {
+        "runtime": {
+          "MS.Application.ElectronicRecord.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MS.Application.ElectronicRecord/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
