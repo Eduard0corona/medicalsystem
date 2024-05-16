@@ -11,7 +11,7 @@ namespace MS.Persistence.Authorization
     {
         public static void AddPersistenceServices(this IServiceCollection services, IConfiguration configuration)
         {
-            var connectionString = configuration.GetConnectionString("AuthorizationConnection");
+            var connectionString = configuration.GetConnectionString("AuthorizationConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
             services.AddDbContext<AuthorizationDbContext>(opt => opt.UseSqlServer(connectionString));
 
             services.AddScoped<IUserRepository, UserRepository>();

@@ -6,13 +6,9 @@ using System.Linq.Expressions;
 
 namespace MS.Persistence.Authorization.Repositories
 {
-    public class BaseRepository<T> : IBaseRepository<T> where T : class, IEntity
+    public class BaseRepository<T>(AuthorizationDbContext context) : IBaseRepository<T> where T : class, IEntity
     {
-        protected readonly AuthorizationDbContext Context;
-        public BaseRepository(AuthorizationDbContext context)
-        {
-            Context = context;
-        }
+        protected readonly AuthorizationDbContext Context = context;
 
         public async Task CreateAsync(T entity)
         {
