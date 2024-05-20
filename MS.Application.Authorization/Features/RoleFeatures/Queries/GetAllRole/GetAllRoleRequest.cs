@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
 
 namespace MS.Application.Authorization.Features.RoleFeatures.Queries.GetAllRole
 {
-    public class GetAllRoleRequest
-    {
-    }
+    public sealed record GetAllRoleRequest : IRequest<List<GetAllRoleResponse>>{}
 }

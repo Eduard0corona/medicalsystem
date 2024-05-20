@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using MediatR;
-using MS.Application.Authorization.Common.Security;
 using MS.Application.Authorization.Repositories;
 
 namespace MS.Application.Authorization.Features.UserFeatures.Queries.GetAllUser
