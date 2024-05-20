@@ -4,16 +4,10 @@ using MS.Application.Authorization.Repositories;
 
 namespace MS.Application.Authorization.Features.UserFeatures.Queries.GetAllUser
 {
-    public sealed class GetAllUserHandler : IRequestHandler<GetAllUserRequest, List<GetAllUserResponse>>
+    public sealed class GetAllUserHandler(IUserRepository userRepository, IMapper mapper) : IRequestHandler<GetAllUserRequest, List<GetAllUserResponse>>
     {
-        private readonly IUserRepository _userRepository;
-        private readonly IMapper _mapper;
-
-        public GetAllUserHandler(IUserRepository userRepository, IMapper mapper)
-        {
-            _userRepository = userRepository;
-            _mapper = mapper;
-        }
+        private readonly IUserRepository _userRepository = userRepository;
+        private readonly IMapper _mapper = mapper;
 
         public async Task<List<GetAllUserResponse>> Handle(GetAllUserRequest request, CancellationToken cancellationToken)
         {

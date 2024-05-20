@@ -32,7 +32,6 @@ namespace MS.Authorization.API.Controllers
         public async Task<ActionResult<List<GetAllUserResponse>>> GetAll(CancellationToken cancellationToken)
         {
             var response = await _mediator.Send(new GetAllUserRequest(), cancellationToken);
-            var user = HttpContext.User.Identity as ClaimsIdentity;
             return Ok(response);
         }
     }

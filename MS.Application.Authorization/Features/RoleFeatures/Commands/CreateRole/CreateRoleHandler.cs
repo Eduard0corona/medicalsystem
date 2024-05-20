@@ -10,10 +10,9 @@ using MS.Domain.Authorization.Entities;
 namespace MS.Application.Authorization.Features.RoleFeatures.Commands.CreateRole
 {
     [Authorize(Roles = "Admin")]
-    public class CreateRoleHandler(IRoleRepository roleRepository, ISecurityService securityService, IMapper mapper) : IRequestHandler<CreateRoleRequest, Result<CreateRoleResponse>>
+    public class CreateRoleHandler(IRoleRepository roleRepository, IMapper mapper) : IRequestHandler<CreateRoleRequest, Result<CreateRoleResponse>>
     {
         readonly IRoleRepository _roleRepository  = roleRepository;
-        readonly ISecurityService _securityService = securityService;
         readonly IMapper _mapper = mapper;
 
         public async Task<Result<CreateRoleResponse>> Handle(CreateRoleRequest request, CancellationToken cancellationToken)
