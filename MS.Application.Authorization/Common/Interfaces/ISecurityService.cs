@@ -5,8 +5,8 @@ namespace MS.Application.Authorization.Common.Interfaces
     public interface ISecurityService
     {
         string GenerateToken(User userInfo);
-        public string HashPassword(string password);
-
-        public bool VerifyPassword(string password, string hashedPassword);
+        string HashPassword(string password);
+        bool VerifyPassword(string password, string hashedPassword);
+        int? ValidateJwtToken(string? token);
     }
 }

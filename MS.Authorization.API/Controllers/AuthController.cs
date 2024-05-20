@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MS.Application.Authorization.Features.UserFeatures.Queries.LoginUser;
@@ -20,6 +21,13 @@ namespace MS.Authorization.API.Controllers
                 return BadRequest("Invalid Login");
 
             return Ok(response);
+        }
+
+        [Authorize]
+        [HttpGet]
+        public async Task<ActionResult> TestLogin()
+        {
+            return Ok();
         }
     }
 }

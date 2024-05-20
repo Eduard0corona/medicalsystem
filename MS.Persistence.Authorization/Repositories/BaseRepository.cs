@@ -13,6 +13,7 @@ namespace MS.Persistence.Authorization.Repositories
         public async Task CreateAsync(T entity)
         {
             await Context.AddAsync(entity);
+            await Context.SaveChangesAsync();
         }
 
         public async Task<bool> EntityExistsAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken)
@@ -30,9 +31,11 @@ namespace MS.Persistence.Authorization.Repositories
             return await Context.Set<T>().AsNoTracking().Where(predicate).ToListAsync(cancellationToken);
         }
 
-        public void Update(T entity)
+        public async Task UpdateAsync(T entity)
         {
             Context.Update(entity);
+            await Context.SaveChangesAsync();
+
         }
     }
 }

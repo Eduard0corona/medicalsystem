@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MS.Application.Authorization.Common.Interfaces;
 using MS.Application.Authorization.Repositories;
 using MS.Persistence.Authorization.Data;
 using MS.Persistence.Authorization.Repositories;
@@ -14,7 +15,10 @@ namespace MS.Persistence.Authorization
             var connectionString = configuration.GetConnectionString("AuthorizationConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
             services.AddDbContext<AuthorizationDbContext>(opt => opt.UseSqlServer(connectionString));
 
+            services.AddScoped<IAuthorizationDbContext, AuthorizationDbContext>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IRoleRepository, RoleRepository>();
+
         }
     }
 }
