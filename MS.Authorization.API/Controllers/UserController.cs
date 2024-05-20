@@ -19,7 +19,13 @@ namespace MS.Authorization.API.Controllers
         CancellationToken cancellationToken)
         {
             var response = await _mediator.Send(request, cancellationToken);
-            return Ok(response);
+
+            if (!response.IsSuccess)
+            {
+                return BadRequest(response.Error);
+            }
+
+            return Ok(response.Value);
         }
 
         [HttpGet]

@@ -17,10 +17,12 @@ namespace MS.Authorization.API.Controllers
         {
             var response = await _mediator.Send(request, cancellationToken);
 
-            if (response.Token == string.Empty)
-                return BadRequest("Invalid Login");
+            if (!response.IsSuccess)
+            {
+                return BadRequest(response.Error);
+            }
 
-            return Ok(response);
+            return Ok(response.Value);
         }
 
         [Authorize]
