@@ -36,8 +36,8 @@ namespace MS.Application.Authorization.Services
             {
                 Subject = new ClaimsIdentity(claims),
                 Expires = DateTime.UtcNow.AddHours(Convert.ToDouble(_configuration.GetSection("Security:Jwt:ExpireHours").Value!)),
-                Issuer = "https://eduardocorona.org",
-                Audience = "https://eduardocorona.org",
+                Issuer = "https://localhost:7191/",
+                Audience = "https://localhost:7191/",
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
 

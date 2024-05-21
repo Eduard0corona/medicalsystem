@@ -28,6 +28,7 @@ namespace MS.Authorization.API.Controllers
             return Ok(response.Value);
         }
 
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<List<GetAllUserResponse>>> GetAll(CancellationToken cancellationToken)
         {

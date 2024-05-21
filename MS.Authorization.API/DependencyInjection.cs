@@ -29,6 +29,10 @@ namespace MS.Authorization.API
             {
                 opts.RequireHttpsMetadata = false;
                 opts.SaveToken = true;
+                opts.MapInboundClaims = false;
+                opts.TokenValidationParameters.RoleClaimType = "role";
+                opts.TokenValidationParameters.NameClaimType = "name";
+
                 opts.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuer = false,
