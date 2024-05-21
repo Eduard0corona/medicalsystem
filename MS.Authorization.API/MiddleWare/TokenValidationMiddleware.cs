@@ -8,10 +8,19 @@ namespace MS.Authorization.API.MiddleWare
     {
         private readonly RequestDelegate _next = next;
         private readonly ILogger<TokenValidationMiddleware> _logger = logger;
-        private readonly string _key = configuration.GetSection("Security:Jwt:Key").Value!;
+        private readonly string _key = configuration.GetSection("Security:Jwt:Secret").Value!;
 
         public async Task InvokeAsync(HttpContext context)
         {
+            var path = context.Request.Path.Value!.Trim().ToLower();
+
+            // Exclude specific paths from token validation
+            if (path!.StartsWith("/api/auth"))
+            {
+                await _next(context);
+                return;
+            }
+
             if (!context.Request.Headers.ContainsKey("Authorization"))
             {
                 context.Response.StatusCode = StatusCodes.Status401Unauthorized;

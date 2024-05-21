@@ -27,6 +27,8 @@ namespace MS.Application.Authorization.Services
                 new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new(JwtRegisteredClaimNames.Sub, userInfo.Email),
                 new(JwtRegisteredClaimNames.Email, userInfo.Email),
+                new(JwtRegisteredClaimNames.Name, userInfo.Email),
+
                 new("userid", userInfo.Id.ToString()),
             };
 

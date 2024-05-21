@@ -12,6 +12,7 @@ namespace MS.Authorization.API.Controllers
     {
         private readonly IMediator _mediator = mediator;
 
+        [AllowAnonymous]
         [HttpPost]
         public async Task<ActionResult<LoginUserResponse>> Login(LoginUserRequest request, CancellationToken cancellationToken)
         {

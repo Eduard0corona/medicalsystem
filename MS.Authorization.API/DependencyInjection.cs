@@ -25,15 +25,20 @@ namespace MS.Authorization.API
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
             })
-            .AddJwtBearer(opts => opts.TokenValidationParameters = new TokenValidationParameters
+            .AddJwtBearer(opts =>
             {
-                ValidateIssuer = false,
-                ValidateAudience = false,
-                ValidateLifetime = true,
-                ValidateIssuerSigningKey = true,
-                IssuerSigningKey =
-                    new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration.GetSection("Security:Jwt:Secret").Value!)),
+                opts.RequireHttpsMetadata = false;
+                opts.SaveToken = true;
+                opts.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey =
+                   new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration.GetSection("Security:Jwt:Secret").Value!)),
                     ClockSkew = TimeSpan.Zero
+                };
             });
 
             builder.Services.AddAuthorization();
