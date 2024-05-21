@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
+using MS.Application.Authorization.Common.Exceptions;
 using MS.Application.Authorization.Common.Interfaces;
 using MS.Application.Authorization.Common.Security;
 using MS.Application.Authorization.Repositories;
@@ -40,20 +41,20 @@ namespace MS.Application.Authorization.Common.Behaviours
                     {
                         foreach (var role in roles)
                         {
-                            //var isInRole = await _authorizationDbContext.UserRoles.Where(s => s.UserId.ToString() == _user.Id).ToListAsync();
-                            //if (isInRole)
-                            //{
-                            //    authorized = true;
-                            //    break;
-                            //}
+                            var isInRole = _user.ClaimsIdentity!.HasClaim("role", role);
+                            if (isInRole)
+                            {
+                                authorized = true;
+                                break;
+                            }
                         }
                     }
 
-                    // Must be a member of at least one role in roles
-                    //if (!authorized)
-                    //{
-                    //    throw new ForbiddenAccessException();
-                    //}
+                    //Must be a member of at least one role in roles
+                    if (!authorized)
+                    {
+                        throw new ForbiddenAccessException();
+                    }
                 }
 
                 // Policy-based authorization

@@ -1,20 +1,27 @@
 ﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
 using MS.Application.Authorization.Common.Interfaces;
 using MS.Application.Authorization.Common.Models;
 using MS.Application.Authorization.Repositories;
+using System.Linq;
 
 namespace MS.Application.Authorization.Features.UserFeatures.Queries.LoginUser
 {
-    public class LoginUserHandler(IUserRepository userRepository, ISecurityService securityService) : IRequestHandler<LoginUserRequest, Result<LoginUserResponse>>
+    public class LoginUserHandler(IUserRepository userRepository, ISecurityService securityService, IAuthorizationDbContext authorizationDbContext) : IRequestHandler<LoginUserRequest, Result<LoginUserResponse>>
     {
         readonly IUserRepository _userRepository = userRepository;
         readonly ISecurityService _securityService = securityService;
+        readonly IAuthorizationDbContext _authorizationDbContext = authorizationDbContext;
 
         public async Task<Result<LoginUserResponse>> Handle(LoginUserRequest request, CancellationToken cancellationToken)
         {
             var userToken = new LoginUserResponse();
 
-            var userInfo = await _userRepository.GetByUsername(request.Username, cancellationToken);
+            var userInfo = await _authorizationDbContext.Users
+                .Where(s=> s.Username == request.Username)
+                .Include(s => s.UserRoles!)
+                .ThenInclude(s => s.Role)
+                .FirstOrDefaultAsync(cancellationToken);
 
             if(userInfo is null) 
             {

@@ -32,6 +32,17 @@ namespace MS.Application.Authorization.Services
                 new("userid", userInfo.Id.ToString()),
             };
 
+            if (userInfo.UserRoles != null)
+            {
+                foreach (var role in userInfo.UserRoles)
+                {
+                    if (role.Role != null)
+                    {
+                        claims.Add(new("role", role.Role!.Name));
+                    }
+                }
+            }
+
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
