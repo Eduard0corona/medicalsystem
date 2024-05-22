@@ -1,7 +1,6 @@
 using Microsoft.OpenApi.Models;
 using MS.Application.Authorization;
 using MS.Authorization.API;
-using MS.Authorization.API.MiddleWare;
 using MS.Persistence.Authorization;
 using Swashbuckle.AspNetCore.Filters;
 
@@ -47,7 +46,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 //app.UseMiddleware<TokenValidationMiddleware>();
-
+app.UseExceptionHandler(options => { });
 app.MapControllers();
 
 app.Run();

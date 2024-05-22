@@ -41,7 +41,10 @@ namespace MS.Application.Authorization.Common.Behaviours
                     {
                         foreach (var role in roles)
                         {
-                            var isInRole = _user.ClaimsIdentity!.HasClaim("role", role);
+                            var isInRole = await _authorizationDbContext.UserRoles
+                                .Include(ur => ur.Role)
+                                .AnyAsync(ur => ur.UserId.ToString() == _user.Id && ur.Role!.Name == role, cancellationToken);
+
                             if (isInRole)
                             {
                                 authorized = true;

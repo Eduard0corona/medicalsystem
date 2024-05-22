@@ -30,6 +30,7 @@ namespace MS.Application.Authorization.Services
                 new(JwtRegisteredClaimNames.Name, userInfo.Email),
 
                 new("userid", userInfo.Id.ToString()),
+                new("username", userInfo.Username)
             };
 
             if (userInfo.UserRoles != null)
@@ -38,7 +39,7 @@ namespace MS.Application.Authorization.Services
                 {
                     if (role.Role != null)
                     {
-                        claims.Add(new("role", role.Role!.Name));
+                        claims.Add(new(ClaimTypes.Role, role.Role!.Name));
                     }
                 }
             }

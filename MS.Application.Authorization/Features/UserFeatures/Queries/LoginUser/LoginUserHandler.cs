@@ -7,9 +7,8 @@ using System.Linq;
 
 namespace MS.Application.Authorization.Features.UserFeatures.Queries.LoginUser
 {
-    public class LoginUserHandler(IUserRepository userRepository, ISecurityService securityService, IAuthorizationDbContext authorizationDbContext) : IRequestHandler<LoginUserRequest, Result<LoginUserResponse>>
+    public class LoginUserHandler(ISecurityService securityService, IAuthorizationDbContext authorizationDbContext) : IRequestHandler<LoginUserRequest, Result<LoginUserResponse>>
     {
-        readonly IUserRepository _userRepository = userRepository;
         readonly ISecurityService _securityService = securityService;
         readonly IAuthorizationDbContext _authorizationDbContext = authorizationDbContext;
 

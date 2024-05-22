@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using MS.Application.Authorization.Common.Interfaces;
+using MS.Authorization.API.Infrastructure;
 using MS.Authorization.API.Services;
+using System.Security.Claims;
 using System.Text;
 
 namespace MS.Authorization.API
@@ -13,6 +15,8 @@ namespace MS.Authorization.API
             services.AddScoped<IUser, CurrentUser>();
 
             services.AddHttpContextAccessor();
+
+            services.AddExceptionHandler<CustomExceptionHandler>();
 
             return services;
         }
@@ -41,7 +45,8 @@ namespace MS.Authorization.API
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey =
                    new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration.GetSection("Security:Jwt:Secret").Value!)),
-                    ClockSkew = TimeSpan.Zero
+                    ClockSkew = TimeSpan.Zero,
+                    RoleClaimType = ClaimTypes.Role
                 };
             });
 

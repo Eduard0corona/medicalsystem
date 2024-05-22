@@ -8,6 +8,7 @@ using System.Security.Claims;
 
 namespace MS.Authorization.API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UserController(IMediator mediator) : ControllerBase
@@ -28,7 +29,6 @@ namespace MS.Authorization.API.Controllers
             return Ok(response.Value);
         }
 
-        [Authorize]
         [HttpGet]
         public async Task<ActionResult<List<GetAllUserResponse>>> GetAll(CancellationToken cancellationToken)
         {
