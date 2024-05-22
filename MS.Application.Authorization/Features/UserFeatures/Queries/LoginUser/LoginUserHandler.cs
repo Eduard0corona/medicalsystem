@@ -3,7 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using MS.Application.Authorization.Common.Interfaces;
 using MS.Application.Authorization.Common.Models;
 using MS.Application.Authorization.Repositories;
+using MS.Domain.Authorization.Entities;
 using System.Linq;
+using System.Threading;
 
 namespace MS.Application.Authorization.Features.UserFeatures.Queries.LoginUser
 {
@@ -34,9 +36,27 @@ namespace MS.Application.Authorization.Features.UserFeatures.Queries.LoginUser
                 return Result<LoginUserResponse>.Failure("User credentials are wrong.");   
             }
 
+            var refreshToken = await GetRefreshTokenAsync(userInfo, cancellationToken);
+
+            if (refreshToken is null)
+            {
+                return Result<LoginUserResponse>.Failure("Failed to create a refresh token.");
+            }
+
+
+            userToken.RefreshToken = refreshToken.Token;
             userToken.Token = _securityService.GenerateToken(userInfo);
 
             return Result<LoginUserResponse>.Success(userToken);
+        }
+
+        private async Task<RefreshToken> GetRefreshTokenAsync(User userInfo, CancellationToken cancellationToken)
+        {
+            var refreshToken = _securityService.CreateRefreshToken(userInfo.Id);
+            await _authorizationDbContext.RefreshTokens.AddAsync(refreshToken, cancellationToken);
+            await _authorizationDbContext.SaveChangesAsync(cancellationToken);
+
+            return refreshToken;
         }
     }
 }

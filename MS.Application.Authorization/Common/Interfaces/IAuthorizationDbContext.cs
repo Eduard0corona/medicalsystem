@@ -9,6 +9,7 @@ namespace MS.Application.Authorization.Common.Interfaces
         DbSet<Role> Roles { get; }
         DbSet<Token> Tokens { get; }
         DbSet<UserRole> UserRoles { get; }
+        DbSet<RefreshToken> RefreshTokens { get; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }

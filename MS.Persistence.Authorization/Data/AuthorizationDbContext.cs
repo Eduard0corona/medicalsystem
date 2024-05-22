@@ -18,6 +18,7 @@ namespace MS.Persistence.Authorization.Data
         public DbSet<Token> Tokens => Set<Token>();
 
         public DbSet<UserRole> UserRoles => Set<UserRole>();
+        public DbSet<RefreshToken> RefreshTokens => Set<RefreshToken>();
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
