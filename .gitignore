@@ -271,3 +271,5 @@
 /MS.Authorization.API/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Design.dll
 /MS.Authorization.API/bin/Debug/net8.0/Microsoft.Extensions.DependencyModel.dll
 /MS.Persistence.Authorization/obj/Debug/net8.0/MS.Persistence.Authorization.csproj.CoreCompileInputs.cache
+/MS.Persistence.Authorization/bin/Debug/net8.0/MS.Persistence.Authorization.deps.json
+/MS.Persistence.Authorization/bin/Debug/net8.0/MS.Persistence.Authorization.runtimeconfig.json
