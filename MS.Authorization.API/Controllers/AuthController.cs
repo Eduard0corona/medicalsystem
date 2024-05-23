@@ -13,10 +13,9 @@ namespace MS.Authorization.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthController(IMediator mediator, CookieService cookieService) : ControllerBase
+    public class AuthController(IMediator mediator) : ControllerBase
     {
         private readonly IMediator _mediator = mediator;
-        private readonly CookieService _cookieService = cookieService;
 
         [AllowAnonymous]
         [HttpPost]
@@ -29,15 +28,20 @@ namespace MS.Authorization.API.Controllers
                 return BadRequest(response.Error);
             }
 
-            _cookieService.SetTokenCookies(response.Value!.Token, response.Value.RefreshToken);
-
             return Ok(response.Value);
         }
 
         [HttpPost]
         public async Task<ActionResult<Result<UpdateRefreshTokenResponse>>> Refresh(UpdateRefreshTokenRequest request, CancellationToken cancellationToken)
         {
+            var response = await _mediator.Send(request, cancellationToken);
 
+            if (!response.IsSuccess)
+            {
+                return BadRequest(response.Error);
+            }
+
+            return Ok(response.Value);
         }
     }
 }

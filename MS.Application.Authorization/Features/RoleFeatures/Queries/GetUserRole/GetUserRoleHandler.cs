@@ -14,7 +14,7 @@ namespace MS.Application.Authorization.Features.RoleFeatures.Queries.GetUserRole
         public async Task<List<GetUserRoleResponse>> Handle(GetUserRoleRequest request, CancellationToken cancellationToken)
         {
             var userRoles = await _authorizationDbContext.UserRoles
-            .Where(s => s.UserId == request.userId)
+            .Where(s => s.UserId == request.UserId)
             .Include(ur => ur.Role)
             .ToListAsync(cancellationToken);
 

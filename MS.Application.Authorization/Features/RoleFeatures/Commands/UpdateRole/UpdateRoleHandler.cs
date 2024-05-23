@@ -12,7 +12,7 @@ namespace MS.Application.Authorization.Features.RoleFeatures.Commands.UpdateRole
 
         public async Task<Result<UpdateRoleResponse>> Handle(UpdateRoleRequest request, CancellationToken cancellationToken)
         {
-            var entity = await _authorizationDbContext.Roles.FindAsync(new object[] { request.Id }, cancellationToken);
+            var entity = await _authorizationDbContext.Roles.FindAsync([request.Id], cancellationToken);
 
             if(entity == null)
             {

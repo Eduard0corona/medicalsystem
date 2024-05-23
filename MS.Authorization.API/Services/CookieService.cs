@@ -1,13 +1,8 @@
 ﻿namespace MS.Authorization.API.Services
 {
-    public class CookieService
+    public class CookieService(IHttpContextAccessor httpContextAccessor)
     {
-        private readonly IHttpContextAccessor _httpContextAccessor;
-
-        public CookieService(IHttpContextAccessor httpContextAccessor)
-        {
-            _httpContextAccessor = httpContextAccessor;
-        }
+        private readonly IHttpContextAccessor _httpContextAccessor = httpContextAccessor;
 
         public void SetTokenCookies(string accessToken, string refreshToken)
         {

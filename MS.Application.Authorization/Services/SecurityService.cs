@@ -1,20 +1,16 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using MS.Application.Authorization.Common.Interfaces;
 using MS.Domain.Authorization.Entities;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace MS.Application.Authorization.Services
 {
-    public class SecurityService(IConfiguration configuration) : ISecurityService
+    public class SecurityService(IConfiguration configuration, IHttpContextAccessor _httpContextAccessor) : ISecurityService
     {
         private readonly IConfiguration _configuration = configuration;
 
@@ -105,7 +101,7 @@ namespace MS.Application.Authorization.Services
             return BCrypt.Net.BCrypt.Verify(password, hashedPassword);
         }
 
-        private string GenerateRefreshToken()
+        private static string GenerateRefreshToken()
         {
             var randomBytes = new byte[32];
             using var rng = RandomNumberGenerator.Create();
@@ -119,9 +115,33 @@ namespace MS.Application.Authorization.Services
             {
                 Token = GenerateRefreshToken(),
                 Expires = DateTime.UtcNow.AddDays(7),
-                Created = DateTime.UtcNow,
+                DateCreated = DateTime.UtcNow,
                 UserId = userId
             };
+        }
+
+        public void SetTokenCookies(string accessToken, string refreshToken)
+        {
+            var accessTokenCookieOptions = new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = true,
+                Expires = DateTime.UtcNow.AddHours(1)
+            };
+
+            var refreshTokenCookieOptions = new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = true,
+                Expires = DateTime.UtcNow.AddDays(7)
+            };
+
+            var httpContext = _httpContextAccessor.HttpContext;
+            if (httpContext != null)
+            {
+                httpContext.Response.Cookies.Append("access_token", accessToken, accessTokenCookieOptions);
+                httpContext.Response.Cookies.Append("refresh_token", refreshToken, refreshTokenCookieOptions);
+            }
         }
     }
 }

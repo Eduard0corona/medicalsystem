@@ -9,5 +9,6 @@ namespace MS.Application.Authorization.Common.Interfaces
         bool VerifyPassword(string password, string hashedPassword);
         int? ValidateJwtToken(string? token);
         RefreshToken CreateRefreshToken(Guid userId);
+        void SetTokenCookies(string accessToken, string refreshToken);
     }
 }
