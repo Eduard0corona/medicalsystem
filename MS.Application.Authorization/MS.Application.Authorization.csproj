@@ -21,4 +21,8 @@
     <ProjectReference Include="..\MS.Domain.Authorization\MS.Domain.Authorization.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\AuthFeatures\Queries\GetRefreshToken\" />
+  </ItemGroup>
+
 </Project>

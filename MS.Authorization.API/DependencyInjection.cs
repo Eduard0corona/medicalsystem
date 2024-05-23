@@ -16,6 +16,7 @@ namespace MS.Authorization.API
 
             services.AddHttpContextAccessor();
 
+            services.AddScoped<CookieService>();
             services.AddExceptionHandler<CustomExceptionHandler>();
 
             return services;

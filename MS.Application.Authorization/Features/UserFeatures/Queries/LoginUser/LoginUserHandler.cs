@@ -2,10 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using MS.Application.Authorization.Common.Interfaces;
 using MS.Application.Authorization.Common.Models;
-using MS.Application.Authorization.Repositories;
 using MS.Domain.Authorization.Entities;
-using System.Linq;
-using System.Threading;
 
 namespace MS.Application.Authorization.Features.UserFeatures.Queries.LoginUser
 {

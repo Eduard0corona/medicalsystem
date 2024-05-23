@@ -10,5 +10,6 @@ namespace MS.Domain.Authorization.Entities
         public string PasswordHash { get; set; } = string.Empty;
         public IReadOnlyList<UserRole>? UserRoles { get; set; }
         public IReadOnlyList<Token>? Tokens { get; set; }
+        public ICollection<RefreshToken>? RefreshTokens { get; set; }
     }
 }

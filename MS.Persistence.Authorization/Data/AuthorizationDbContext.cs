@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MS.Application.Authorization.Common.Interfaces;
-using MS.Domain.Authorization.Common;
 using MS.Domain.Authorization.Entities;
 using System.Reflection;
 
