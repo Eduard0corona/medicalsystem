@@ -19,7 +19,7 @@ namespace MS.Persistence.Authorization.Data.Configurations
             builder.Property(t => t.Value)
                 .HasColumnName("Value")
                 .IsRequired()
-                .HasMaxLength(255);
+                .HasMaxLength(maxLength: int.MaxValue);
 
             builder.Property(t => t.ExpiryDate)
                 .HasColumnName("ExpiryDate")

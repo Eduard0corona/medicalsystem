@@ -31,17 +31,17 @@ namespace MS.Authorization.API.Controllers
             return Ok(response.Value);
         }
 
-        [HttpPost]
-        public async Task<ActionResult<Result<UpdateRefreshTokenResponse>>> Refresh(UpdateRefreshTokenRequest request, CancellationToken cancellationToken)
-        {
-            var response = await _mediator.Send(request, cancellationToken);
+        //[HttpPost]
+        //public async Task<ActionResult<Result<UpdateRefreshTokenResponse>>> Refresh(UpdateRefreshTokenRequest request, CancellationToken cancellationToken)
+        //{
+        //    var response = await _mediator.Send(request, cancellationToken);
 
-            if (!response.IsSuccess)
-            {
-                return BadRequest(response.Error);
-            }
+        //    if (!response.IsSuccess)
+        //    {
+        //        return BadRequest(response.Error);
+        //    }
 
-            return Ok(response.Value);
-        }
+        //    return Ok(response.Value);
+        //}
     }
 }

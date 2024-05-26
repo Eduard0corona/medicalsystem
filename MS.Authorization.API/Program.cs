@@ -46,7 +46,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 //app.UseMiddleware<TokenValidationMiddleware>();
-app.UseExceptionHandler(options => { });
+//app.UseExceptionHandler(options => { });
 app.MapControllers();
 
 app.Run();

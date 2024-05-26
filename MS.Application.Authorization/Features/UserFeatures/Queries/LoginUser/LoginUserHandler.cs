@@ -1,15 +1,19 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using MS.Application.Authorization.Common.Interfaces;
 using MS.Application.Authorization.Common.Models;
+using MS.Domain.Authorization.Common;
 using MS.Domain.Authorization.Entities;
 
 namespace MS.Application.Authorization.Features.UserFeatures.Queries.LoginUser
 {
-    public class LoginUserHandler(ISecurityService securityService, IAuthorizationDbContext authorizationDbContext) : IRequestHandler<LoginUserRequest, Result<LoginUserResponse>>
+    public class LoginUserHandler(ISecurityService securityService, IAuthorizationDbContext authorizationDbContext, IConfiguration configuration) : IRequestHandler<LoginUserRequest, Result<LoginUserResponse>>
     {
         readonly ISecurityService _securityService = securityService;
         readonly IAuthorizationDbContext _authorizationDbContext = authorizationDbContext;
+        readonly IConfiguration _configuration = configuration;
 
         public async Task<Result<LoginUserResponse>> Handle(LoginUserRequest request, CancellationToken cancellationToken)
         {
@@ -33,27 +37,22 @@ namespace MS.Application.Authorization.Features.UserFeatures.Queries.LoginUser
                 return Result<LoginUserResponse>.Failure("User credentials are wrong.");   
             }
 
-            var refreshToken = await GetRefreshTokenAsync(userInfo, cancellationToken);
+            var newAccessToken = _securityService.GenerateToken(userInfo);
+            var newRefreshToken = _securityService.CreateRefreshToken(userInfo.Id);
 
-            if (refreshToken is null)
-            {
-                return Result<LoginUserResponse>.Failure("Failed to create a refresh token.");
-            }
+            userToken.RefreshToken = newRefreshToken.Token;
+            userToken.Token = newAccessToken;
 
+            var tokenEntity = new Token() { UserId = userInfo.Id, Value = newAccessToken, ExpiryDate = DateTime.UtcNow.AddHours(Convert.ToDouble(_configuration.GetSection("Security:Jwt:ExpireHours").Value!)) };
 
-            userToken.RefreshToken = refreshToken.Token;
-            userToken.Token = _securityService.GenerateToken(userInfo);
+            await _authorizationDbContext.RefreshTokens.AddAsync(newRefreshToken, cancellationToken);
+            await _authorizationDbContext.Tokens.AddAsync(tokenEntity, cancellationToken);
 
-            return Result<LoginUserResponse>.Success(userToken);
-        }
-
-        private async Task<RefreshToken> GetRefreshTokenAsync(User userInfo, CancellationToken cancellationToken)
-        {
-            var refreshToken = _securityService.CreateRefreshToken(userInfo.Id);
-            await _authorizationDbContext.RefreshTokens.AddAsync(refreshToken, cancellationToken);
             await _authorizationDbContext.SaveChangesAsync(cancellationToken);
 
-            return refreshToken;
+            _securityService.SetTokenCookies(newAccessToken, newRefreshToken.Token);
+
+            return Result<LoginUserResponse>.Success(userToken);
         }
     }
 }

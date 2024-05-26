@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using MS.Application.Authorization.Common.Interfaces;
@@ -19,16 +20,16 @@ namespace MS.Application.Authorization.Services
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_configuration.GetSection("Security:Jwt:Secret").Value!);
 
-            var claims = new List<Claim>
-            {
-                new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new(JwtRegisteredClaimNames.Sub, userInfo.Email),
-                new(JwtRegisteredClaimNames.Email, userInfo.Email),
-                new(JwtRegisteredClaimNames.Name, userInfo.Email),
+            var claims = new List<Claim>()
+                {
+                    new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                    new(JwtRegisteredClaimNames.Sub, userInfo.Email),
+                    new(JwtRegisteredClaimNames.Email, userInfo.Email),
+                    new(JwtRegisteredClaimNames.Name, userInfo.Email),
 
-                new("userid", userInfo.Id.ToString()),
-                new("username", userInfo.Username)
-            };
+                    new("userid", userInfo.Id.ToString()),
+                    new("username", userInfo.Username)
+                };
 
             if (userInfo.UserRoles != null)
             {
@@ -41,9 +42,11 @@ namespace MS.Application.Authorization.Services
                 }
             }
 
+            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(claims),
+                Subject = claimsIdentity,
                 Expires = DateTime.UtcNow.AddHours(Convert.ToDouble(_configuration.GetSection("Security:Jwt:ExpireHours").Value!)),
                 Issuer = "https://localhost:7191/",
                 Audience = "https://localhost:7191/",
@@ -54,7 +57,7 @@ namespace MS.Application.Authorization.Services
             return tokenHandler.WriteToken(token);
         }
 
-        public int? ValidateJwtToken(string? token)
+        public Guid? ValidateJwtToken(string? token)
         {
             if (token == null)
                 return null;
@@ -74,7 +77,7 @@ namespace MS.Application.Authorization.Services
                 }, out SecurityToken validatedToken);
 
                 var jwtToken = (JwtSecurityToken)validatedToken;
-                var userId = int.Parse(jwtToken.Claims.First(x => x.Type == "id").Value);
+                var userId = Guid.Parse(jwtToken.Claims.First(x => x.Type == "userid").Value);
 
                 // return user id from JWT token if validation successful
                 return userId;
@@ -126,7 +129,7 @@ namespace MS.Application.Authorization.Services
             {
                 HttpOnly = true,
                 Secure = true,
-                Expires = DateTime.UtcNow.AddHours(1)
+                Expires = DateTime.UtcNow.AddHours(Convert.ToDouble(_configuration.GetSection("Security:Jwt:ExpireHours").Value!))
             };
 
             var refreshTokenCookieOptions = new CookieOptions
