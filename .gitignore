@@ -337,3 +337,6 @@
 /MS.Persistence.Patients/obj/MS.Persistence.Patients.csproj.nuget.g.props
 /MS.Persistence.Patients/obj/project.assets.json
 /MS.Persistence.Patients/obj/project.nuget.cache
+/MS.Application.Authorization/bin/Debug/net8.0/MS.Application.Authorization.deps.json
+/MS.Application.Authorization/obj/Debug/net8.0/MS.Application.Authorization.csproj.CoreCompileInputs.cache
+/MS.Domain.Authorization/obj/Debug/net8.0/MS.Domain.Authorization.csproj.CoreCompileInputs.cache
