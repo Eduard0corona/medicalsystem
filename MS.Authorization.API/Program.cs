@@ -1,6 +1,7 @@
 using Microsoft.OpenApi.Models;
 using MS.Application.Authorization;
 using MS.Authorization.API;
+using MS.Authorization.API.Infrastructure;
 using MS.Persistence.Authorization;
 using Swashbuckle.AspNetCore.Filters;
 
@@ -29,7 +30,6 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
@@ -40,12 +40,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseMiddleware<CookieValidationMiddleware>();
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
 
-//app.UseMiddleware<TokenValidationMiddleware>();
 //app.UseExceptionHandler(options => { });
 app.MapControllers();
 

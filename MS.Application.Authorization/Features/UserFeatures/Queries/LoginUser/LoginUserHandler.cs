@@ -1,10 +1,8 @@
-﻿using AutoMapper;
-using MediatR;
+﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using MS.Application.Authorization.Common.Interfaces;
 using MS.Application.Authorization.Common.Models;
-using MS.Domain.Authorization.Common;
 using MS.Domain.Authorization.Entities;
 
 namespace MS.Application.Authorization.Features.UserFeatures.Queries.LoginUser

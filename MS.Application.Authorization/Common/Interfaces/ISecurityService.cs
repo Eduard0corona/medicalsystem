@@ -1,4 +1,5 @@
 ﻿using MS.Domain.Authorization.Entities;
+using System.Security.Claims;
 
 namespace MS.Application.Authorization.Common.Interfaces
 {
@@ -7,7 +8,7 @@ namespace MS.Application.Authorization.Common.Interfaces
         string GenerateToken(User userInfo);
         string HashPassword(string password);
         bool VerifyPassword(string password, string hashedPassword);
-        Guid? ValidateJwtToken(string? token);
+        ClaimsPrincipal? ValidateJwtToken(string? token);
         RefreshToken CreateRefreshToken(Guid userId);
         void SetTokenCookies(string accessToken, string refreshToken);
     }

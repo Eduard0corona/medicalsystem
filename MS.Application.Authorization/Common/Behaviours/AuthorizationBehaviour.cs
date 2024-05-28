@@ -3,13 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using MS.Application.Authorization.Common.Exceptions;
 using MS.Application.Authorization.Common.Interfaces;
 using MS.Application.Authorization.Common.Security;
-using MS.Application.Authorization.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MS.Application.Authorization.Common.Behaviours
 {

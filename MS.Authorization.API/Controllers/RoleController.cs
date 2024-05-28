@@ -7,13 +7,13 @@ using MS.Application.Authorization.Features.RoleFeatures.Queries.GetUserRole;
 
 namespace MS.Authorization.API.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class RoleController(IMediator mediator) : ControllerBase
     {
         private readonly IMediator _mediator = mediator;
 
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<CreateRoleResponse>> Create(CreateRoleRequest request,
         CancellationToken cancellationToken)
@@ -28,6 +28,7 @@ namespace MS.Authorization.API.Controllers
             return Ok(result.Value);
         }
 
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<List<GetAllRoleResponse>>> GetAll(CancellationToken cancellationToken)
         {
@@ -35,6 +36,7 @@ namespace MS.Authorization.API.Controllers
             return Ok(response);
         }
 
+        [Authorize]
         [HttpGet("/user/roles")]
         public async Task<ActionResult<List<GetUserRoleResponse>>> GetUserRoles(Guid userId, CancellationToken cancellationToken)
         {

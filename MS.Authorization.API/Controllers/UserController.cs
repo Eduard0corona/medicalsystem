@@ -1,20 +1,17 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MS.Application.Authorization.Features.UserFeatures.Commands.CreateUser;
 using MS.Application.Authorization.Features.UserFeatures.Queries.GetAllUser;
-using System.Security.Claims;
 
 namespace MS.Authorization.API.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UserController(IMediator mediator) : ControllerBase
     {
         private readonly IMediator _mediator = mediator;
-
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<CreateUserResponse>> Create(CreateUserRequest request,
         CancellationToken cancellationToken)
@@ -28,7 +25,7 @@ namespace MS.Authorization.API.Controllers
 
             return Ok(response.Value);
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<ActionResult<List<GetAllUserResponse>>> GetAll(CancellationToken cancellationToken)
         {

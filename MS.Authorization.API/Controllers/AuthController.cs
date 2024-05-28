@@ -1,13 +1,7 @@
-﻿using Azure.Core;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using MS.Application.Authorization.Common.Models;
-using MS.Application.Authorization.Features.AuthFeatures.Commands.UpdateRefreshToken;
 using MS.Application.Authorization.Features.UserFeatures.Queries.LoginUser;
-using MS.Authorization.API.Services;
-using MS.Domain.Authorization.Entities;
 
 namespace MS.Authorization.API.Controllers
 {

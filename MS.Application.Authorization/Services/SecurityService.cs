@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication.Cookies;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -57,7 +58,7 @@ namespace MS.Application.Authorization.Services
             return tokenHandler.WriteToken(token);
         }
 
-        public Guid? ValidateJwtToken(string? token)
+        public ClaimsPrincipal? ValidateJwtToken(string? token)
         {
             if (token == null)
                 return null;
@@ -77,10 +78,16 @@ namespace MS.Application.Authorization.Services
                 }, out SecurityToken validatedToken);
 
                 var jwtToken = (JwtSecurityToken)validatedToken;
-                var userId = Guid.Parse(jwtToken.Claims.First(x => x.Type == "userid").Value);
+                var claims = jwtToken.Claims;
 
-                // return user id from JWT token if validation successful
-                return userId;
+                //retrieve claims by key.
+                //var userId = Guid.Parse(jwtToken.Claims.First(x => x.Type == "userid").Value);
+
+                // Create a ClaimsIdentity and ClaimsPrincipal
+                var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+
+                return claimsPrincipal; ;
             }
             catch
             {
